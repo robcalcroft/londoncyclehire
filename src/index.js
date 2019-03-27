@@ -4,9 +4,9 @@ import geolib from "geolib";
   const map = L.map("map").setView([51.505, -0.09], 12);
   let bikePoints = [];
 
-  L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
-      'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
   }).addTo(map);
 
   fetch("https://api.tfl.gov.uk/bikePoint")
