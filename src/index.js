@@ -53,7 +53,7 @@ import geolib from "geolib";
           const bikepoint = bikePoints2kmFromUser[index];
           const element = document.createElement('div');
           element.className = 'dashboard__bikepoint';
-          element.innerHTML = `<b>${bikepoint.additionalProperties[7].value}/${bikepoint.additionalProperties[8].value}</b> &mdash; ${bikepoint.commonName}`;
+          element.innerHTML = `<b>${bikepoint.additionalProperties[7].value} free spaces &amp; ${bikepoint.additionalProperties[6].value} bikes available</b> &mdash; ${bikepoint.commonName}`;
           container.appendChild(element);
         }
 
