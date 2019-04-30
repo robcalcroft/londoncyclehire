@@ -39,6 +39,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  background-color: pink;
+  cursor: not-allowed;
+}
+
 @media (min-width: 900px) {
   button:hover {
     background-color: pink;
@@ -84,6 +89,14 @@ p {
 
 .dashboard__main {
   flex: 1;
+}
+
+.dashboard__loader {
+  display: none;
+}
+
+.dashboard__loader--visible {
+  display: initial;
 }
 
 .dashboard__bikepoint {

@@ -1,5 +1,18 @@
 import geolib from "geolib";
 
+function toggleLoader() {
+  document.getElementById('loader').classList.toggle('dashboard__loader--visible');
+}
+
+function toggleFindMeActive() {
+  const button = document.getElementById('findMe');
+  if (button.getAttribute('disabled') !== null) {
+    button.removeAttribute('disabled');
+  } else {
+    button.setAttribute('disabled', '');
+  }
+}
+
 (() => {
   const map = L.map("map").setView([51.505, -0.09], 12);
   let bikePoints = [];
@@ -15,9 +28,12 @@ import geolib from "geolib";
       if (_bikePoints && _bikePoints.length) {
         bikePoints = _bikePoints;
       }
-    });
+    })
+    .then(toggleFindMeActive);
 
   document.getElementById("findMe").addEventListener("click", () => {
+    toggleLoader();
+    toggleFindMeActive();
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         map.setMinZoom(14);
@@ -46,7 +62,6 @@ import geolib from "geolib";
           }
         }
 
-        console.log(bikePoints2kmFromUser);
         const container = document.createElement('div');
 
         for (let index = bikePoints2kmFromUser.length - 1; index > 0; index -= 1) {
@@ -58,6 +73,8 @@ import geolib from "geolib";
         }
 
         document.getElementById('dashboard__main').appendChild(container);
+        toggleLoader();
+        toggleFindMeActive();
       },
       () => {
         alert("Couldn't determine your location");
