@@ -10,6 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 html,
@@ -49,7 +50,7 @@ p {
 }
 
 .main {
-  height: 100vh;
+  height: 100%;
   display: flex;
   overflow: hidden;
 }
@@ -71,6 +72,7 @@ p {
   display: flex;
   flex-direction: column;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 900px) {
